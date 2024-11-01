@@ -39,7 +39,7 @@
         console.log(e);
         //console.log( @this.currentClipId );
 
-        if (document.querySelector(".record").style.backgroundColor !== "") {
+        /*if (document.querySelector(".record").style.backgroundColor !== "") {
           // Pause reaction if user recording 
           $pendingUpdate = true;
         }else if($pendingUpdate || e.clip.id != @this.currentClipId ){
@@ -47,7 +47,7 @@
           // @this.<LivewireComponentFunctionName> -> syntax for calling livewire func in the background, sent tru "/livewire/update" route
           @this.refreshList();
           $pendingUpdate = false;
-        }    
+        }    */
       });
     </script>
     @endscript
