@@ -36,7 +36,7 @@
       // Make sure to add a "." before the event name, other wise it ain't gonna listen to the event
       Echo.channel('clips')
       .listen('.clip-created', e => {
-        //console.log(e);
+        console.log(e);
         //console.log( @this.currentClipId );
 
         if (document.querySelector(".record").style.backgroundColor !== "") {

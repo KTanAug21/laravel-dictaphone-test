@@ -49,7 +49,7 @@ class Recorder extends Component
     public function updatedRecordingFile(){
         // Upload this new recording to S3 bucket, in clips directory
         $fileName   = $this->recordingName; 
-        $resultPath = $this->recordingFile->storePubliclyAs( env("CLIPS_DIRECTORY"),  $fileName, 's3' );
+        $resultPath = "/path";//$this->recordingFile->storePubliclyAs( env("CLIPS_DIRECTORY"),  $fileName, 's3' );
 
         // Create a new db record of the recording, as a clip row
         $clip = Clip::firstOrCreate(

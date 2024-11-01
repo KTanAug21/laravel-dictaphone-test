@@ -24,6 +24,7 @@ class Clip extends Model
     public function getUri()
     {
       $filePath = env('CLIPS_DIRECTORY').'/'.$this->name;
+      return "/path";
       return  Storage::disk('s3')->temporaryUrl(
           $filePath, now()->addMinutes(60)
       );
@@ -32,8 +33,8 @@ class Clip extends Model
     public function deleteClip(): bool
     {
       try{
-        $filePath = env('CLIPS_DIRECTORY').'/'.$this->name;
-        Storage::disk('s3')->delete($filePath);
+        //$filePath = env('CLIPS_DIRECTORY').'/'.$this->name;
+        //Storage::disk('s3')->delete($filePath);
         Clip::where('name', $this->name)->delete();
         return true;
       }catch(\Exception $e){
@@ -50,7 +51,7 @@ class Clip extends Model
         $newFilePath = env('CLIPS_DIRECTORY').'/'.$newName;
 
         // This is essentially renaming!
-        Storage::disk('s3')->move($filePath, $newFilePath);
+        //Storage::disk('s3')->move($filePath, $newFilePath);
         Clip::where('name', $this->name)->update(['name'=>$newName]);
         return $newName;
       }catch(\Exception $e){
