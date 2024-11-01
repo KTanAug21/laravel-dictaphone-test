@@ -1,6 +1,11 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
+
+const headers = new Headers();
+let auth = headers.get('Authorization');
+
+
 export default defineConfig({
     plugins: [
         laravel({
@@ -14,4 +19,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server:{
+        headers: {
+            Authorization: auth
+        }
+    }
 });
